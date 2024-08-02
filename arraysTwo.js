@@ -24,7 +24,8 @@ function reportCard(name, grades, passingGrade) {
 	})
 	let amountCoursesFailed = coursesFailed.length
 	let passedTheYear = coursesTaken === amountCoursesPassed ? 'pasó' : 'no pasó'
+	let barelyPassed = grades.includes(passingGrade) ? 'sí' : 'no'
 
-	console.log(`Nombre: ${name} \nMaterias cursadas: ${coursesTaken} \nMaterias aprobadas: ${amountCoursesPassed} \nNotas aprobadas: ${coursesPassed} \nMaterias desaprobadas ${amountCoursesFailed} \nNotas desaprobadas: ${coursesFailed} \nPaso de año: ${passedTheYear}`)
+	console.log(`Nombre: ${name} \nMaterias cursadas: ${coursesTaken} \nMaterias aprobadas: ${amountCoursesPassed} \nNotas aprobadas: ${coursesPassed} \nMaterias desaprobadas ${amountCoursesFailed} \nNotas desaprobadas: ${coursesFailed} \nPaso de año: ${passedTheYear} \nAprobo alguna de pedo: ${barelyPassed}`)
 }
 reportCard(name, grades, passingGrade)
