@@ -245,3 +245,11 @@ let someoneIsATeenager = ages.some(function(age){
 	return age >= 13 && age <= 17
 })
 console.log(`Hay algun adolscente ${someoneIsATeenager}`)
+
+/*
+DEESTRUCTURING EXERCISE
+*/
+
+let numberStrings = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eigth', 'nine', 'ten']
+let [, second, , fourth, five, , seven, , ninth] = numberStrings
+console.log(`${second}, ${fourth}, ${five}, ${seven}, ${ninth}`)
