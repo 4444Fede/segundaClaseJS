@@ -139,17 +139,18 @@ let numbers = [13, 21, 7, 37, 11, 44, 1, -1000]
 let greaterThanZero = numbers.every(function(num){
 	return num > 0
 })
-console.log(greaterThanZero)
+console.log(`Todos los numeros son mayores a 0: ${greaterThanZero}`)
 
 /*
 Validar que todos los strings son no vacíos
 */
 
 let strings = ['aaa', 'ñ', 'qoewqew', 'asadasd', '~~~', '', '~~~~']
-let noEmptyStrings = strings.some(function(str){
-	return str === ''
+let noEmptyStrings = strings.every(function(str){
+	return str.length > 0
 })
-console.log(noEmptyStrings)
+console.log(`No hay strings vacios: ${noEmptyStrings}`)
+
 /*
 Comprueba si todos los elementos en un array de strings contienen algún carácter. Devuelve en consola el resultado
 */
@@ -159,7 +160,7 @@ let everyStringHasSmt = strings.every(function(str){
     return str !== '';
 });
 
-console.log(everyStringHasSmt);
+console.log(`Todos los elementos contienen algun caracter: ${everyStringHasSmt}`);
 
 /*
 Confirmar que todos los estudiantes pasaron el examen:
@@ -169,7 +170,7 @@ let students = [4, 10, 9, 7, 4, 5, 7, 1, 8, 6, 3, 2, 5, 4, 10]
 let everyonePassed = students.every(function(student){
 	return student >= 4
 })
-console.log(everyonePassed)
+console.log(`Todos los estudiantes pasaron: ${everyonePassed}`)
 
 /*
 Comprueba si todos los estudiantes en un array tienen una calificación mayor o igual a 6. Devuelve en consola el resultado.
@@ -179,7 +180,7 @@ students = [6,7,8,9,10]
 let everyoneHigherSix = students.every(function(student){
 	return student >= 6
 })
-console.log(everyoneHigherSix)
+console.log(`Todos sacaron nota mayor a 6: ${everyoneHigherSix}`)
 
 /*
 Verificar si todas las edades son de adultos:
@@ -189,7 +190,7 @@ let ages = [18, 21, 19, 20, 44, 37, 25, 29, 31, 41, 40]
 let everyoneAdult = ages.every(function(age){
 	return age < 21
 })
-console.log(everyoneAdult)
+console.log(`Son todos adultos (mayor a 21): ${everyoneAdult}`)
 
 /*
 Dado un array de edades, verifica si todas las personas son mayores de 18 años.
@@ -198,7 +199,7 @@ Dado un array de edades, verifica si todas las personas son mayores de 18 años.
 let everyoneOlderEigthteen = ages.every(function(age){
 	return age >= 18
 })
-console.log(everyoneOlderEigthteen)
+console.log(`Son todos mayores a 18: ${everyoneOlderEigthteen}`)
 
 /*
 Comprobar si todos los números son divisibles por 5:
@@ -207,7 +208,7 @@ Comprobar si todos los números son divisibles por 5:
 let allDivisibleByFive = numbers.every(function(num){
 	return num % 5 === 0
 })
-console.log(allDivisibleByFive)
+console.log(`Son todos divisibles por 5: ${allDivisibleByFive}`)
 
 /*
 Verificar si al menos un número en un array es mayor que 10.
@@ -216,7 +217,7 @@ Verificar si al menos un número en un array es mayor que 10.
 let oneGreaterThanTen = numbers.some(function(num) {
 	return num > 10
 })
-console.log(oneGreaterThanTen)
+console.log(`Hay alguno mayor a 10: ${oneGreaterThanTen}`)
 
 /*
 Comprobar si al menos un string en un array está vacío.
@@ -225,7 +226,7 @@ Comprobar si al menos un string en un array está vacío.
 let oneStringIsEmpty = strings.some(function(str){
 	 return str === ""
 })
-console.log(oneStringIsEmpty)
+console.log(`Hay algun string vacio: ${oneStringIsEmpty}`)
 
 /*
 Verificar si al menos un estudiante no pasó el examen (calificación menor a 6).
@@ -234,7 +235,7 @@ Verificar si al menos un estudiante no pasó el examen (calificación menor a 6)
 let someoneDidntPass = students.some(function(num){
 	return num < 6
 })
-console.log(someoneDidntPass)
+console.log(`Alguien no paso el examen: ${someoneDidntPass}`)
 
 /*
 Comprobar si al menos una edad en un array corresponde a un adolescente (13-17 años).
@@ -243,4 +244,4 @@ Comprobar si al menos una edad en un array corresponde a un adolescente (13-17 a
 let someoneIsATeenager = ages.some(function(age){
 	return age >= 13 && age <= 17
 })
-console.log(someoneIsATeenager)
+console.log(`Hay algun adolscente ${someoneIsATeenager}`)
