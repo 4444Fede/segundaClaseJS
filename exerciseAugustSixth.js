@@ -145,10 +145,7 @@ Si no existe, lo agrego al array y retorno los valores.
 */
 
 function createProduct(productList, newProduct){
-	let productExists = productList.find(function(product){
-		return product === newProduct
-	})
-	if (productExists) {
+	if (productList.includes(newProduct)) {
 		return `El producto ${newProduct} ya existe`
 	}else{
 		let newProductList = [...productList, newProduct]
@@ -198,10 +195,7 @@ Define una función addIfNotExists que añada un producto a una lista solo si no
 */
 
 function addIfNotExists(productList, newProduct){
-	let productExists = productList.find(function(product){
-		return product === newProduct
-	})
-	if (productExists) {
+	if (productList.includes(newProduct)) {
 		return `El producto ${newProduct} ya se encuentra en la lista`
 	}else{
 		let newProductList = [...productList, newProduct]
@@ -232,10 +226,7 @@ Crea una función addToWishlist que añada un producto a la lista de deseos solo
 
 wishlist = ['laptop', 'phone', 'headphones', 'camera', 'headphones']
 function addToWishlist(productList, newProduct){
-	let productExists = productList.find(function(product){
-		return product === newProduct
-	})
-	if (productExists) {
+	if (productList.includes(newProduct)) {
 		return `El producto ${newProduct} ya esta en su lista de deseados`
 	}else{
 		if (productList.length >= 5) {
