@@ -1,11 +1,4 @@
 /*
-Enunciado:
-En este ejercicio, vas a trabajar con un objeto Personaje basado en el universo de El Señor
-de los Anillos. Tu tarea es crear y manipular este objeto utilizando funciones. Debes
-implementar varias funciones para actualizar y acceder a las propiedades del objeto.
-
-Instrucciones:
-
 1. Crea un objeto Personaje con las siguientes propiedades:
 ○ Nombre
 ○ Raza
