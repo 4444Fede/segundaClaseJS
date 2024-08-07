@@ -232,10 +232,3 @@ function newCharacterValue(player, property, newValue) {
   player[property] = newValue;
   return `La caracteristica ${property} ha sido actualizada`;
 }
-
-let propertie = "allies";
-let nuevoValor = 22;
-
-console.log(describeCharacter(character));
-console.log(newCharacterValue(character, propertie, nuevoValor));
-console.log(describeCharacter(character));
