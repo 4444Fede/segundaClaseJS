@@ -3,62 +3,72 @@ Crear un objeto con las propiedades nombre y especie de Shrek, y luego extraer e
 */
 
 let character1 = {
-	name : 'Shrek',
-	species : 'Ogro'
-}
-let {name, species} = character1
+  name: "Shrek",
+  species: "Ogro",
+};
+let { name, species } = character1;
 
 /*
 Crear un objeto con las propiedades nombre, edad, y especie de Burro, y luego extraer nombre y edad con alias nombrePersonaje y edadPersonaje respectivamente.
 */
 
 let character2 = {
-	name : 'Burro',
-	age : '34',
-	species : 'Burro'
-}
-let {name : character2Name, age : character2Age} = character2
+  name: "Burro",
+  age: "34",
+  species: "Burro",
+};
+let { name: character2Name, age: character2Age } = character2;
 
 /*
 Crear un objeto con las propiedades nombre y especie de Fiona, y luego extraer nombre y asignar un valor predeterminado de 'desconocida' a ocupacion.
 */
 
 let character3 = {
-	name : 'Fiona',
-	species : 'Ogro'
-}
-let {name : character3Name, character3ocuppation = 'Desconocida'} = character3
+  name: "Fiona",
+  species: "Ogro",
+};
+let { name: character3Name, character3ocuppation = "Desconocida" } = character3;
 
 /*
 Crear un objeto con las propiedades nombre, especie, y edad de Shrek, y luego usar destructuring en los parámetros de una función para extraer nombre y especie.
 */
 
-character1.age = 44
-function characterNameAndSpecies ({name, species}){
-	return `El personaje se llama ${name} y es de la raza ${species}`
+character1.age = 44;
+function characterNameAndSpecies({ name, species }) {
+  return `El personaje se llama ${name} y es de la raza ${species}`;
 }
 
 /*
 Crear un objeto con las propiedades nombre, especie, edad, y amigos de Shrek, y luego extraer nombre, especie, y amigos, asignando un valor predeterminado de [] a enemigos si no existe.
 */
 
-character1.friends = ['Burro', 'Fiona']
-let {name : character1Name, species : character1Species, age : character1Age, friends : character1Friends, enemies : character1Enemies = []} =character1
+character1.friends = ["Burro", "Fiona"];
+let {
+  name: character1Name,
+  species: character1Species,
+  age: character1Age,
+  friends: character1Friends,
+  enemies: character1Enemies = [],
+} = character1;
 
 /*
 Crear un objeto con las propiedades nombre, especie, edad, y amigos de Shrek, y luego extraer nombre y amigos, y luego extraer el primer amigo.
 */
 
-let firstFriend = character1Friends[0]
+let firstFriend = character1Friends[0];
 
 /*
 Crear un array de objetos con las propiedades nombre y edad de Shrek, Burro, y Fiona, y luego extraer nombre y edad de cada objeto en el array. Ponerle un alias adecuado a cada uno.
 */
 
-let characterCredentialsList = [{name : character1Name, age : character1Age}, {name : character2Name, age : character2Age}, {name : character3Name, age : 45}]
-let {name : figure1Name, age : figure1Age} = characterCredentialsList[0] 
-let {name : figure2Name, age : figure2Age} = characterCredentialsList[1]
-let {name : figure3Name, age : figure3Age} = characterCredentialsList[2]
+let characterCredentialsList = [
+  { name: character1Name, age: character1Age },
+  { name: character2Name, age: character2Age },
+  { name: character3Name, age: 45 },
+];
+let { name: figure1Name, age: figure1Age } = characterCredentialsList[0];
+let { name: figure2Name, age: figure2Age } = characterCredentialsList[1];
+let { name: figure3Name, age: figure3Age } = characterCredentialsList[2];
 
 /*
 Parte 2
@@ -67,109 +77,116 @@ Crear un objeto shrek con las propiedades nombre, especie, edad, y amigos (que e
 */
 
 let shrek = {
-	name : 'Shrek',
-	species : 'Ogro',
-	age : 34,
-	friends : [
-		{name : 'Burro', species : 'Burro'},
-		{name : 'Fiona', species : 'Ogro'}
-	]
-}
-let {name : shrekName, species : shrekSpecies} = shrek
-let {name : shrekFriend1Name, species : shrekFriend1Species} = shrek.friends[0]
-let {name : shrekFriend2Name, species : shrekFriend2Species} = shrek.friends[1]
+  name: "Shrek",
+  species: "Ogro",
+  age: 34,
+  friends: [
+    { name: "Burro", species: "Burro" },
+    { name: "Fiona", species: "Ogro" },
+  ],
+};
+let { name: shrekName, species: shrekSpecies } = shrek;
+let { name: shrekFriend1Name, species: shrekFriend1Species } = shrek.friends[0];
+let { name: shrekFriend2Name, species: shrekFriend2Species } = shrek.friends[1];
 
 /*
 Crear un objeto pelicula con las propiedades titulo, año, y personajes (que es un array de objetos con propiedades nombre, especie, y rol). Luego extraer el título de la película y los nombres de los personajes principales (aquellos cuyo rol sea 'principal').
 */
 
 let movie = {
-    title: 'Shrek',
-    year: 2001,
-    characters: [
-        { name: 'Shrek', species: 'Ogro', role: 'principal' },
-        { name: 'Fiona', species: 'Humana/Ogro', role: 'principal' },
-        { name: 'Burro', species: 'Burro', role: 'secundario' }
-    ]
-}
-let {title : movieTitle, characters : movieCharacters} = movie
-mainCharacters = movieCharacters.filter(function(character) {
-    if (character.role === 'principal') {
-        return character;
-    }
-})
-mainCharacterNames = []
-mainCharacters.map(function(character){
-	mainCharacterNames.push(character.name);
-})
+  title: "Shrek",
+  year: 2001,
+  characters: [
+    { name: "Shrek", species: "Ogro", role: "principal" },
+    { name: "Fiona", species: "Humana/Ogro", role: "principal" },
+    { name: "Burro", species: "Burro", role: "secundario" },
+  ],
+};
+let { title: movieTitle, characters: movieCharacters } = movie;
+mainCharacters = movieCharacters.filter(function (character) {
+  if (character.role === "principal") {
+    return character;
+  }
+});
+mainCharacterNames = [];
+mainCharacters.map(function (character) {
+  mainCharacterNames.push(character.name);
+});
 
 /*
 Crear un objeto misiones con las propiedades titulo, año, y detalles (que es un objeto con propiedades misionPrincipal y misionSecundaria, ambos con propiedades descripcion y personajes (que es un array de nombres)). Luego extraer la descripción de la misión principal y los nombres de los personajes de la misión secundaria.
 */
 
 let missions = {
-	title : 'Shrek',
-	year : 2001,
-	details : {
-		mainMission : {
-			description : 'sisisi',
-			characters : ['Shrek', 'Burro']
-		},
-		secondaryMission : {
-			description : 'nonono',
-			characters : ['Puss in boots', 'Lord Farquad']
-		}
-	}
-}
-let {details : { mainMission : { description : mainDescription} }, details : {secondaryMission : {characters : secondaryCharacters}} } = missions
+  title: "Shrek",
+  year: 2001,
+  details: {
+    mainMission: {
+      description: "sisisi",
+      characters: ["Shrek", "Burro"],
+    },
+    secondaryMission: {
+      description: "nonono",
+      characters: ["Puss in boots", "Lord Farquad"],
+    },
+  },
+};
+let {
+  details: {
+    mainMission: { description: mainDescription },
+  },
+  details: {
+    secondaryMission: { characters: secondaryCharacters },
+  },
+} = missions;
 
 /*
 Crear un objeto evento con las propiedades nombre, fecha, y invitados (que es un array de objetos con propiedades nombre, especie, y confirmado (booleano)). Luego extraer el nombre del evento y los nombres de los invitados confirmados.
 */
 
 let event = {
-	name : 'fiesta',
-	date : '09/11/2024',
-	guests : [
-		{name : 'pijurria', species : 'pijurrion', confirmed : true},
-		{name : 'Shrek', species : 'Ogro', confirmed : false}, 
-		{name : 'Burro', species : 'Burro', confirmed : true}
-	]
-}
-let {name : eventName, guests : eventGuests} = event
-confirmedGuests = eventGuests.filter(function(guest) {
-    if (guest.confirmed === true) {
-        return guest;
-    }
-})
-confirmedGuestsNames = []
-confirmedGuests.map(function(guest){
-	confirmedGuestsNames.push(guest.name)
-})
+  name: "fiesta",
+  date: "09/11/2024",
+  guests: [
+    { name: "pijurria", species: "pijurrion", confirmed: true },
+    { name: "Shrek", species: "Ogro", confirmed: false },
+    { name: "Burro", species: "Burro", confirmed: true },
+  ],
+};
+let { name: eventName, guests: eventGuests } = event;
+confirmedGuests = eventGuests.filter(function (guest) {
+  if (guest.confirmed === true) {
+    return guest;
+  }
+});
+confirmedGuestsNames = [];
+confirmedGuests.map(function (guest) {
+  confirmedGuestsNames.push(guest.name);
+});
 
 /*
 Crear un objeto banda con las propiedades nombre, genero, y miembros (que es un array de objetos con propiedades nombre, instrumento, y experiencia (en años)). Luego extraer el nombre del género y los instrumentos de los miembros con más de 5 años de experiencia.
 */
 
 let band = {
-	name : 'caig y los pijurriones',
-	genre : 'metal',
-	members : [
-		{name : 'pijurria', instrument : 'pijurriometro', experience : 13},
-		{name : 'caig', instrument : 'bateria', experience : 4}, 
-		{name : 'caigsinho', instrument : 'bajo', experience : 7}
-	]
-}
-let {genre : bandGenre, members : bandMembers} = band
-experiencedMembers = bandMembers.filter(function(member) {
-    if (member.experience > 5) {
-        return member
-    }
-})
-experiencedMembersNames = []
-experiencedMembers.map(function(member){
-	experiencedMembersNames.push(member.name)
-})
+  name: "caig y los pijurriones",
+  genre: "metal",
+  members: [
+    { name: "pijurria", instrument: "pijurriometro", experience: 13 },
+    { name: "caig", instrument: "bateria", experience: 4 },
+    { name: "caigsinho", instrument: "bajo", experience: 7 },
+  ],
+};
+let { genre: bandGenre, members: bandMembers } = band;
+experiencedMembers = bandMembers.filter(function (member) {
+  if (member.experience > 5) {
+    return member;
+  }
+});
+experiencedMembersNames = [];
+experiencedMembers.map(function (member) {
+  experiencedMembersNames.push(member.name);
+});
 
 /*
 Parte 3
@@ -177,31 +194,31 @@ Crear una función crearPareja que reciba dos objetos ogro y princesa y devuelva
 */
 
 let ogre = {
-	name : 'Shrek',
-	age : 44
-}
+  name: "Shrek",
+  age: 44,
+};
 let princess = {
-	name : 'Fiona',
-	age : 44
+  name: "Fiona",
+  age: 44,
+};
+function createCouple(ogre, princess) {
+  let { name: ogreName, age: ogreAge } = ogre;
+  let { name: princessName, age: princessAge } = princess;
+  let couple = { ogreName, princessName, ogreAge, princessAge };
+  if (checkAgeGreater28(couple)) {
+    addInitialMission(couple);
+  }
+  return couple;
 }
-function createCouple(ogre, princess){
-	let {name : ogreName, age : ogreAge} = ogre
-	let {name : princessName, age : princessAge} = princess
-	let couple = {ogreName, princessName, ogreAge, princessAge}
-	if (checkAgeGreater28(couple)){
-		addInitialMission(couple)
-	}
-	return couple
+function checkAgeGreater28({ ogreAge, princessAge }) {
+  if (ogreAge > 28 || princessAge > 28) {
+    return true;
+  } else {
+    return false;
+  }
 }
-function checkAgeGreater28 ({ogreAge, princessAge}){
-	if (ogreAge > 28 || princessAge > 28) {
-		return true
-	}else{
-		return false
-	}
-}
-function addInitialMission(couple){
-	couple.missions = ['Mision inicial']
+function addInitialMission(couple) {
+  couple.missions = ["Mision inicial"];
 }
 
 /*
@@ -209,28 +226,28 @@ Crear una función unirPersonajes que reciba un array de objetos personajes y de
 */
 
 let personajes = [
-  { name: 'Shrek', kingdom: 'Pantano' },
-  { name: 'Fiona', kingdom: 'Duloc' },
-  { name: 'Burro', kingdom: 'Pantano' }
-]
-function matchCharacters(characters){
-	let charactersNames = getValues(characters, 'name')
-	let charactersKingdoms = getValues(characters, 'kingdom')
-	let alliance = {charactersNames, charactersKingdoms}
-	if (isKingdomSwamp(charactersKingdoms)) {
-		alliance.importantPlaces = ['Pantano']
-	}
-	return alliance
+  { name: "Shrek", kingdom: "Pantano" },
+  { name: "Fiona", kingdom: "Duloc" },
+  { name: "Burro", kingdom: "Pantano" },
+];
+function matchCharacters(characters) {
+  let charactersNames = getValues(characters, "name");
+  let charactersKingdoms = getValues(characters, "kingdom");
+  let alliance = { charactersNames, charactersKingdoms };
+  if (isKingdomSwamp(charactersKingdoms)) {
+    alliance.importantPlaces = ["Pantano"];
+  }
+  return alliance;
 }
 function getValues(characters, property) {
-	let newArray = []
-	characters.map(function(character){
-		newArray.push(character[property])
-	})
-	return newArray
+  let newArray = [];
+  characters.map(function (character) {
+    newArray.push(character[property]);
+  });
+  return newArray;
 }
 function isKingdomSwamp(kingdoms) {
-	return kingdoms.includes('Pantano')
+  return kingdoms.includes("Pantano");
 }
 
 /*
@@ -238,38 +255,38 @@ Crear una función resumenPersonajes que reciba un array de objetos personajes d
 */
 
 let personajes2 = [
-  { info: { name: 'Shrek', age: 35, kingdom: 'Pantano' } },
-  { info: { name: 'Fiona', age: 28, kingdom: 'Duloc' } },
-  { info: { name: 'Rey Harold', age: 45, kingdom: 'Far Far Away' } }
-]
-function summarizeCharacters(characters){
-	let charactersNames = getValuesFromInfo(characters, 'name')
-	let charactersAge = getValuesFromInfo(characters, 'age')
-	let greaterThanThirty = getOldPeople(charactersAge, 30)
-	let resume = {charactersNames, greaterThanThirty}
-	if (greaterThan40(greaterThanThirty)) {
-		resume.categories = ['mayoresDe40']
-	}
-	return resume
+  { info: { name: "Shrek", age: 35, kingdom: "Pantano" } },
+  { info: { name: "Fiona", age: 28, kingdom: "Duloc" } },
+  { info: { name: "Rey Harold", age: 45, kingdom: "Far Far Away" } },
+];
+function summarizeCharacters(characters) {
+  let charactersNames = getValuesFromInfo(characters, "name");
+  let charactersAge = getValuesFromInfo(characters, "age");
+  let greaterThanThirty = getOldPeople(charactersAge, 30);
+  let resume = { charactersNames, greaterThanThirty };
+  if (greaterThan40(greaterThanThirty)) {
+    resume.categories = ["mayoresDe40"];
+  }
+  return resume;
 }
 function getValuesFromInfo(characters, property) {
-	let newArray = []
-	characters.map(function(character){
-		newArray.push(character.info[property])
-	})
-	return newArray
+  let newArray = [];
+  characters.map(function (character) {
+    newArray.push(character.info[property]);
+  });
+  return newArray;
 }
 function getOldPeople(ages, oldAge) {
-	let newArray = ages.filter(function(age){
-		return age > oldAge
-	})
-	return newArray
+  let newArray = ages.filter(function (age) {
+    return age > oldAge;
+  });
+  return newArray;
 }
-function greaterThan40(ages){
-	let someoneOld = ages.some(function(age) {
-		return age > 40
-	})
-	return someoneOld
+function greaterThan40(ages) {
+  let someoneOld = ages.some(function (age) {
+    return age > 40;
+  });
+  return someoneOld;
 }
 
 /*
@@ -279,19 +296,19 @@ Crea una función agregarHobbies que reciba dos objetos persona y nuevosHobbies.
 */
 
 let person = {
-	name : 'caig',
-	age : 44,
-	hobbies : ['hobbie1']
-}
+  name: "caig",
+  age: 44,
+  hobbies: ["hobbie1"],
+};
 let newHobbies = {
-	hobbies : ['Brawl stars', 'Zzz']
-}
-function addHobbie(person, newHobbies){
-	updatedPerson = {
-		...person,
-		hobbies : [...person.hobbies, ...newHobbies.hobbies]
-	}
-	return updatedPerson
+  hobbies: ["Brawl stars", "Zzz"],
+};
+function addHobbie(person, newHobbies) {
+  updatedPerson = {
+    ...person,
+    hobbies: [...person.hobbies, ...newHobbies.hobbies],
+  };
+  return updatedPerson;
 }
 
 /*
@@ -299,16 +316,16 @@ Crea una función actualizarDatos que reciba dos objetos datosPersonales y datos
 */
 
 let personalData = {
-	name : 'pepe',
-	age : '34'
-}
+  name: "pepe",
+  age: "34",
+};
 let contactData = {
-	addres : 'buenardopolis',
-	phone : '+54 9 11 4664-5122'
-}
-function updateData(personalData, contactData){
-	fullInformation = {...personalData, ...contactData}
-	return fullInformation
+  addres: "buenardopolis",
+  phone: "+54 9 11 4664-5122",
+};
+function updateData(personalData, contactData) {
+  fullInformation = { ...personalData, ...contactData };
+  return fullInformation;
 }
 
 /*
@@ -316,35 +333,35 @@ Crea una función agregarCaracteristicas que reciba dos objetos vehiculo y carac
 */
 
 let vehicle = {
-	brand : 'renault',
-	model : 'kwid'
-}
+  brand: "renault",
+  model: "kwid",
+};
 let characteristics = {
-	color : 'azul',
-	type :'Zzz?'
+  color: "azul",
+  type: "Zzz?",
+};
+function addCharacteristics(vehicle, features) {
+  if (features.color === "rojo") {
+    return { ...vehicle, ...characteristics };
+  } else {
+    return { ...vehicle };
+  }
 }
-function addCharacteristics(vehicle, features){
-	if (features.color === 'rojo') {
-		return {...vehicle, ...characteristics}
-	}else{
-		return {...vehicle}
-	}
-}
-console.log(addCharacteristics(vehicle, characteristics))
+console.log(addCharacteristics(vehicle, characteristics));
 
 /*
 Crea una función eliminarTelefono que reciba un objeto persona y elimine explícitamente la propiedad telefono del objeto. Usa el spread operator para crear un nuevo objeto personaSinTelefono que contenga todas las propiedades del objeto original persona excepto telefono. Devuelve personaSinTelefono.
 */
 let person1 = {
-	name : 'pepe',
-	age : '34',
-	number : '+54 9 11 4664-5122'
+  name: "pepe",
+  age: "34",
+  number: "+54 9 11 4664-5122",
+};
+function deleteNumber(person) {
+  let { number, ...personWithoutPhone } = person;
+  return personWithoutPhone;
 }
-function deleteNumber(person){
-	let  { number, ...personWithoutPhone } = person 
-	return personWithoutPhone
-}
-console.log(deleteNumber(person1))
+console.log(deleteNumber(person1));
 
 /*
 Parte 5
@@ -353,19 +370,17 @@ Crea una función combinacionPersonajes que reciba dos objetos personajes1 y per
 */
 
 let character4 = {
-	name : 'aaaa',
-	abilities : ['aaaa', 'bbb', 'ccc']
-}
+  name: "aaaa",
+  abilities: ["aaaa", "bbb", "ccc"],
+};
 let character5 = {
-	name : 'dqdq',
-	atributtes : {
-		strength : 'muchisimo',
-		skill : 'muchisisimo'
-	}
-}
-function combineCharacters(character1, character2) {
-	
-}
+  name: "dqdq",
+  atributtes: {
+    strength: "muchisimo",
+    skill: "muchisisimo",
+  },
+};
+function combineCharacters(character1, character2) {}
 
 /*
 Crea una función combinarClientes que reciba dos objetos cliente1 y cliente2, donde cliente1 tiene propiedades nombre y datos (un objeto con edad y direccion), y cliente2 tiene propiedades nombre y informacion (un objeto con telefono y email). Usa el spread operator para combinar datos y informacion en un solo objeto perfilCompleto, y devuelve un nuevo objeto con el nombre y el objeto perfilCompleto.

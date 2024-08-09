@@ -30,8 +30,8 @@ Utiliza el array numbers del ejercicio anterior.
 numbers.pop();
 console.log(numbers);
 
-numbers.unshift(44, 7, 13)
-console.log(numbers)
+numbers.unshift(44, 7, 13);
+console.log(numbers);
 
 /*
 Crea un array vacío llamado colors, agregando cada elemento al principio del array.
@@ -39,9 +39,9 @@ Crea un array vacío llamado colors, agregando cada elemento al principio del ar
 */
 
 let colors = [];
-colors.unshift('red');
-colors.unshift('blue');
-colors.unshift('green');
+colors.unshift("red");
+colors.unshift("blue");
+colors.unshift("green");
 console.log(colors);
 
 /*
@@ -60,9 +60,9 @@ Agregar múltiples elementos al final de un array:
 */
 
 let fruits = [];
-console.log(fruits)
+console.log(fruits);
 
-fruits.push('apple', 'banana', 'orange');
+fruits.push("apple", "banana", "orange");
 console.log(fruits);
 
 /*
@@ -82,9 +82,9 @@ Agregar múltiples elementos al principio de un array:
 ● Agrega los siguientes elementos al principio del array: 'grape', 'kiwi'.
 */
 
-fruits.unshift('grape');
+fruits.unshift("grape");
 console.log(fruits);
-fruits.unshift('kiwi');
+fruits.unshift("kiwi");
 console.log(fruits);
 
 /*
@@ -104,7 +104,7 @@ Agregar un elemento específico al final de un array:
 ● Agrega el color 'yellow' al final del array.
 */
 
-colors.push('yellow');
+colors.push("yellow");
 console.log(colors);
 
 /*

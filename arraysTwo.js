@@ -9,23 +9,25 @@ Las notas de las materias reprobadas
 Si el alumno pasó de año (aprobó todas las materias)
 */
 
-let name = 'Pijurria'
-let grades = [4, 3, 5, 9, 10, 2, 7]
-let passingGrade = 4
+let name = "Pijurria";
+let grades = [4, 3, 5, 9, 10, 2, 7];
+let passingGrade = 4;
 
 function reportCard(name, grades, passingGrade) {
-	let coursesTaken = grades.length
-	let coursesPassed = grades.filter(function(grade){
-		return grade >= 4
-	})
-	let amountCoursesPassed = coursesPassed.length
-	let coursesFailed = grades.filter(function(grade){
-		return grade < 4
-	})
-	let amountCoursesFailed = coursesFailed.length
-	let passedTheYear = coursesTaken === amountCoursesPassed ? 'paso' : 'no paso'
-	let barelyPassed = grades.includes(passingGrade) ? 'si' : 'no'
-	let scoreTen = grades.includes(10) ? 'si' : 'no'
-	console.log(`Nombre: ${name} \nMaterias cursadas: ${coursesTaken} \nMaterias aprobadas: ${amountCoursesPassed} \nNotas aprobadas: ${coursesPassed} \nMaterias desaprobadas ${amountCoursesFailed} \nNotas desaprobadas: ${coursesFailed} \nPaso de año: ${passedTheYear} \nAprobo alguna de pedo: ${barelyPassed} \nSe saco algun diez: ${scoreTen}`)
+  let coursesTaken = grades.length;
+  let coursesPassed = grades.filter(function (grade) {
+    return grade >= 4;
+  });
+  let amountCoursesPassed = coursesPassed.length;
+  let coursesFailed = grades.filter(function (grade) {
+    return grade < 4;
+  });
+  let amountCoursesFailed = coursesFailed.length;
+  let passedTheYear = coursesTaken === amountCoursesPassed ? "paso" : "no paso";
+  let barelyPassed = grades.includes(passingGrade) ? "si" : "no";
+  let scoreTen = grades.includes(10) ? "si" : "no";
+  console.log(
+    `Nombre: ${name} \nMaterias cursadas: ${coursesTaken} \nMaterias aprobadas: ${amountCoursesPassed} \nNotas aprobadas: ${coursesPassed} \nMaterias desaprobadas ${amountCoursesFailed} \nNotas desaprobadas: ${coursesFailed} \nPaso de año: ${passedTheYear} \nAprobo alguna de pedo: ${barelyPassed} \nSe saco algun diez: ${scoreTen}`
+  );
 }
-reportCard(name, grades, passingGrade)
+reportCard(name, grades, passingGrade);
