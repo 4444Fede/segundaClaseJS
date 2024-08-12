@@ -119,26 +119,123 @@ Reciba por parámetro una key y un valor
 Debe asegurarse que la key exista
 Retorne si existe o no el color
 */
+
 let colores = [
-  { nombre: "rojo", rgb: "rgb(255, 0, 0)" },
-  { nombre: "verde", rgb: "rgb(0, 255, 0)" },
-  { nombre: "azul", rgb: "rgb(0, 0, 255)" },
-  { nombre: "amarillo", rgb: "rgb(255, 255, 0)" },
-  { nombre: "cian", rgb: "rgb(0, 255, 255)" },
-  { nombre: "magenta", rgb: "rgb(255, 0, 255)" },
-  { nombre: "blanco", rgb: "rgb(255, 255, 255)" },
-  { nombre: "negro", rgb: "rgb(0, 0, 0)" },
-  { nombre: "gris", rgb: "rgb(128, 128, 128)" },
-  { nombre: "naranja", rgb: "rgb(255, 165, 0)" },
-  { nombre: "morado", rgb: "rgb(128, 0, 128)" },
-  { nombre: "rosado", rgb: "rgb(255, 192, 203)" },
-  { nombre: "marrón", rgb: "rgb(165, 42, 42)" },
-  { nombre: "beige", rgb: "rgb(245, 245, 220)" },
-  { nombre: "turquesa", rgb: "rgb(64, 224, 208)" },
-  { nombre: "lila", rgb: "rgb(200, 162, 200)" },
-  { nombre: "oliva", rgb: "rgb(128, 128, 0)" },
-  { nombre: "salmon", rgb: "rgb(250, 128, 114)" },
-  { nombre: "púrpura", rgb: "rgb(128, 0, 128)" },
-  { nombre: "teal", rgb: "rgb(0, 128, 128)" },
-  { nombre: "azul claro", rgb: "rgb(173, 216, 230)" },
+  { nombre: 'rojo', rgb: 'rgb(255, 0, 0)' },
+  { nombre: 'verde', rgb: 'rgb(0, 255, 0)' },
+  { nombre: 'azul', rgb: 'rgb(0, 0, 255)' },
+  { nombre: 'amarillo', rgb: 'rgb(255, 255, 0)' },
+  { nombre: 'cian', rgb: 'rgb(0, 255, 255)' },
+  { nombre: 'magenta', rgb: 'rgb(255, 0, 255)' },
+  { nombre: 'blanco', rgb: 'rgb(255, 255, 255)' },
+  { nombre: 'negro', rgb: 'rgb(0, 0, 0)' },
+  { nombre: 'gris', rgb: 'rgb(128, 128, 128)' },
+  { nombre: 'naranja', rgb: 'rgb(255, 165, 0)' },
+  { nombre: 'morado', rgb: 'rgb(128, 0, 128)' },
+  { nombre: 'rosado', rgb: 'rgb(255, 192, 203)' },
+  { nombre: 'marrón', rgb: 'rgb(165, 42, 42)' },
+  { nombre: 'beige', rgb: 'rgb(245, 245, 220)' },
+  { nombre: 'turquesa', rgb: 'rgb(64, 224, 208)' },
+  { nombre: 'lila', rgb: 'rgb(200, 162, 200)' },
+  { nombre: 'oliva', rgb: 'rgb(128, 128, 0)' },
+  { nombre: 'salmon', rgb: 'rgb(250, 128, 114)' },
+  { nombre: 'púrpura', rgb: 'rgb(128, 0, 128)' },
+  { nombre: 'teal', rgb: 'rgb(0, 128, 128)' },
+  { nombre: 'azul claro', rgb: 'rgb(173, 216, 230)' },
+]
+function existColor(color, keyValue, colors) {
+  keys = [];
+  values = [];
+  colors.map(function (col) {
+    keys.push(Object.keys(col));
+    values.push(Object.values(col));
+  });
+  let isKey = keys.some(function (key) {
+    return key[0] == keyValue;
+  });
+  let isValue = values.some(function (value) {
+    return value[0] == color;
+  });
+  return isValue && isKey;
+}
+console.log(existColor('rojo', 'nombre', colores))
+
+/*
+Ejercicio 8: Equipos de magos
+Crear el objeto: magos contiene las dos listas bajo las propiedades equipo1 y equipo2.
+Crea una función que a partir de dos equipos:
+Reciba por parámetros el objeto magos
+Usa Object.values(magos) para obtener las listas de magos.
+Devuelve un objeto con las tres listas requeridas.
+*/
+
+let team1 = [
+  'Harry Potter',
+  'Hermione Granger',
+  'Ron Weasley',
+  'Draco Malfoy',
+  'Neville Longbottom',
+  'Luna Lovegood',
+  'Ginny Weasley',
+  'Severus Snape',
+  'Sirius Black',
+  'Remus Lupin',
 ];
+let team2 = [
+  'Luna Lovegood',
+  'Draco Malfoy',
+  'Harry Potter',
+  'Gilderoy Lockhart',
+  'Sirius Black',
+  'Albus Dumbledore',
+  'Minerva McGonagall',
+  'Hermione Granger',
+  'Ron Weasley',
+  'Rubeus Hagrid',
+];
+let wizards = {
+  team1,
+  team2,
+};
+function formTeams(wizards) {
+  teams = Object.values(wizards);
+  let repeated = [];
+  let team1WithoutRepeated = [];
+  let team2WithoutRepeated = [];
+  teams[0].map(function (team) {
+    if (teams[1].includes(team)) {
+      repeated.push(team);
+    } else {
+      team1WithoutRepeated.push(team);
+    }
+  });
+  teams[1].map(function (team) {
+    if (!teams[0].includes(team)) {
+      team2WithoutRepeated.push(team);
+    }
+  });
+  return {
+    team1WithoutRepeated,
+    team2WithoutRepeated,
+    repeated,
+  };
+}
+console.log(formTeams(wizards))
+
+/*
+Ejercicio 9: Filtrado por Key
+Resultado esperado { Jane: 92 }
+Crear una función filterByKey que reciba por parámetros el objeto studentGrades y una key
+Debe retornar un nuevo objeto que contenga solamente la key,valor encontrada, si no existe retornar “No se ha encontrado la key”
+La función debe ser dinámica, es decir, debo poder pasarle cualquier valor en key
+*/
+
+let studentsGrades = { Jhon: 85, Jane: 92, Jim: 78, Jil: 88 };
+function filterByKey(studentsGrades, key) {
+  if (studentsGrades[key]) {
+    return {[key] : studentsGrades[key]}
+  }else{
+    return 'No se ha encontrado la Key'
+  }
+}
+console.log(filterByKey(studentsGrades, 'Jane'))
