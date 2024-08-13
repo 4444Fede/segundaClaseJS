@@ -382,14 +382,14 @@ let character5 = {
 };
 
 function combineCharacters(character1, character2) {
-	let {name, ...restInfo} = {...character1, ...character2}
-	let combinatedInfo = {
-		name : character2.name,
-		information : {...restInfo}
-	}
-	return combinatedInfo
+  let { name, ...restInfo } = { ...character1, ...character2 };
+  let combinatedInfo = {
+    name: character2.name,
+    information: { ...restInfo },
+  };
+  return combinatedInfo;
 }
-console.log(combineCharacters(character4, character5))
+console.log(combineCharacters(character4, character5));
 
 /*
 Crea una función combinarClientes que reciba dos objetos cliente1 y cliente2, donde cliente1 tiene propiedades nombre y datos (un objeto con edad y direccion), y cliente2 tiene propiedades nombre y informacion (un objeto con telefono y email). Usa el spread operator para combinar datos y informacion en un solo objeto perfilCompleto, y devuelve un nuevo objeto con el nombre y el objeto perfilCompleto.
@@ -397,7 +397,7 @@ Crea una función combinarClientes que reciba dos objetos cliente1 y cliente2, d
 
 let client1 = {
   name: "Pijurria",
-  data : {age : 44, addres : 'buenardopolis'}
+  data: { age: 44, addres: "buenardopolis" },
 };
 let client2 = {
   name: "caig",
@@ -407,61 +407,66 @@ let client2 = {
   },
 };
 
-function combineClients(client1, client2){
-	let {name, ...fullInfo} = {...client1, ...client2}
-	let combinedClients = {
-		name : client1.name,
-		fullProfile : {...fullInfo}
-	}
-	return combinedClients
+function combineClients(client1, client2) {
+  let { name, ...fullInfo } = { ...client1, ...client2 };
+  let combinedClients = {
+    name: client1.name,
+    fullProfile: { ...fullInfo },
+  };
+  return combinedClients;
 }
-console.log(combineClients(client1, client2))
+console.log(combineClients(client1, client2));
 
 /*
 Crea una función actualizarPerfil que reciba dos objetos usuario y detalles. El objeto usuario tiene propiedades nombre, edad, y colorFavorito, y el objeto detalles tiene propiedades direccion y telefono. Usa el spread operator para actualizar usuario con direccion y telefono de detalles, pero solo si la edad del usuario es mayor de 25. Si la edad es 25 o menor, establece valores predeterminados para direccion y telefono en el objeto resultante. Devuelve el objeto usuarioActualizado.
 */
 
 let user = {
-	name : 'aaaa',
-	age : 44,
-	favoriteColor : 'rojo'
-}
+  name: "aaaa",
+  age: 44,
+  favoriteColor: "rojo",
+};
 let details = {
-	addres : 'buenardopolis',
-	number : '+54 9 11 1234-5678'
+  addres: "buenardopolis",
+  number: "+54 9 11 1234-5678",
+};
+function updateProfile(user, details) {
+  let updatedUser = {
+    name: user.name,
+    age: user.age,
+    ...(user.favoriteColor === "morado" && { favoriteColor: "morado" }),
+    ...details,
+  };
+  if (updatedUser.age < 25) {
+    updatedUser.addres = "default";
+    updatedUser.number = "+5 11 22222222";
+  }
+  return updatedUser;
 }
-function updateProfile(user, details){
-	let updatedUser = {name : user.name, age : user.age, ...user.favoriteColor === 'morado' && { favoriteColor : 'morado'}, ...details}
-	if (updatedUser.age < 25){
-		updatedUser.addres = 'default'
-		updatedUser.number = '+5 11 22222222'
-	}
-	return updatedUser
-}
-console.log(updateProfile(user,details))
+console.log(updateProfile(user, details));
 
 /*
 Crea una función actualizarInfo que reciba dos objetos usuario y detalles, y un array de palabrasClave. El objeto usuario tiene propiedades nombre, edad, y colorFavorito, y el objeto detalles tiene propiedades direccion, telefono, y ocupacion. El array palabrasClave contiene una lista de palabras que pueden estar presentes en el campo colorFavorito de usuario. Usa el spread operator para actualizar el objeto usuario con direccion, telefono, y ocupacion de detalles solo si el colorFavorito de usuario está presente en palabrasClave. Si el colorFavorito no está en palabrasClave, establece valores predeterminados para direccion, telefono, y ocupacion. Devuelve el objeto usuarioActualizado.
 */
 
 let user1 = {
-	name : 'pijurria',
-	age : 24,
-	favoriteColor : 'rojo'
-}
+  name: "pijurria",
+  age: 24,
+  favoriteColor: "rojo",
+};
 let details1 = {
-	addres : 'buenardopolis',
-	number : '+54 9 11 1234-5678',
-	occupation : 'pijurriador'
+  addres: "buenardopolis",
+  number: "+54 9 11 1234-5678",
+  occupation: "pijurriador",
+};
+let keyColors = ["morado", "azul", "rojo"];
+function updateInfo(user, details, acceptedColors) {
+  let updatedInfo = { ...user, ...details };
+  if (!acceptedColors.includes(updatedInfo.favoriteColor)) {
+    (updatedInfo.addres = "default"),
+      (updatedInfo.number = "default"),
+      (updatedInfo.occupation = "default");
+  }
+  return updatedInfo;
 }
-let keyColors = ['morado', 'azul', 'rojo']
-function updateInfo(user, details, acceptedColors){
-	let updatedInfo = {...user, ...details}
-	if (!acceptedColors.includes(updatedInfo.favoriteColor)){
-		updatedInfo.addres = 'default',
-		updatedInfo.number = 'default',
-		updatedInfo.occupation = 'default'
-	}
-	return updatedInfo
-}
-console.log(updateInfo(user1, details1, keyColors))
+console.log(updateInfo(user1, details1, keyColors));
