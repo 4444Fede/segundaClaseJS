@@ -103,3 +103,27 @@ function deleteJedi(jediOrder, jediId){
 		return `El id jedi proporcionado no existe`
 	}
 }
+
+function compareJedi(jediOrder, firstJediId, secondJediId){
+	const levels = {Padawan : 1, Caballero : 2, Maestro : 3}
+	if (jediExists(jediOrder, firstJediId)) {
+		if (jediExists(jediOrder, secondJediId)) {
+				let firstJedi = jediOrder.find(function(jedi){
+					return jedi.id === firstJediId
+				})
+				let secondJedi = jediOrder.find(function(jedi){
+					return jedi.id === secondJediId
+				})
+			let strongerJedi = levels[firstJedi.level] > levels[secondJedi.level] ? firstJedi.name : secondJedi.name;
+			return {
+				jedi1 : {name : firstJedi.name, level : firstJedi.level},
+				jedi2 : {name : secondJedi.name, level : secondJedi.level},
+				strongerJedi 
+			}
+		}else{
+			return `El segundo jedi introducido no existe`
+		}
+	}else{
+		return `El primer jedi introducido no existe`
+	}
+}
